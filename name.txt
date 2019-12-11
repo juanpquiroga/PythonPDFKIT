@@ -1,0 +1,21 @@
+<head>
+  <title>Test App</title>
+  <link type="text/css" rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <img src="/home/jquiroga/proyectos/python/pdfkit/static/tracking.png">
+    <img src="data:;base64,{{ image1}}">
+    <h1>Name: {{ name  }}</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Valor</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{ d['name'] }}</td>
+            <td>{{ d['valor'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>

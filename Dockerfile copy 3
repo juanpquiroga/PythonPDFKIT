@@ -1,0 +1,16 @@
+FROM python:3.7.4-slim-buster
+ENV PYTHONUNBUFFERED 1
+LABEL Name=pythonwkhtml
+
+RUN apt-get update
+
+RUN apt-get install -y wkhtmltopdf
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN pip install --upgrade pip
+
+ENV APP_HOME /app
+WORKDIR $APP_HOME
+COPY . $APP_HOME
+RUN chown -R "$USER:$USER" .
+RUN pip install -r requirements.txt
